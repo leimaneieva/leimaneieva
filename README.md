@@ -2,7 +2,7 @@
 
 A premium Next.js social analytics platform powered by Claude AI for real-time sentiment analysis across social media platforms. Built with Supabase for multi-tenant architecture with Row Level Security (RLS).
 
-## 🚀 Features  
+## 🚀 Features   
 
 - **AI-Powered Sentiment Analysis**: Claude Sonnet 4 analyzes social media mentions with detailed reasoning
 - **Multi-Platform Support**: Instagram, Facebook, Twitter, and LinkedIn integration
