@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Sparkles, Loader2, Instagram, Facebook, Twitter, Linkedin, Wand2, Check } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+// TEMP DISABLED import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface Business {
   id: string
