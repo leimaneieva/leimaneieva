@@ -11,9 +11,9 @@ export default async function Page() {
   }
 
   return (
-    <div className="container mx-auto py-10 space-y-8 max-w-7xl">
+    <div className="container mx-auto py-10 space-y-8 max-w-7xl p-4 sm:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
           Social Sentiment Dashboard
         </h1>
@@ -62,8 +62,8 @@ export default async function Page() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 col-span-1 lg:col-span-2 shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div className="grid grid-cols-1 gap-6">
+        <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
           <div className="border-b border-slate-200 pb-6 mb-6">
             <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
               Quick Actions
