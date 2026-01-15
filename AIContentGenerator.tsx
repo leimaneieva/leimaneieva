@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Sparkles, Loader2, Instagram, Facebook, Twitter, Linkedin, Wand2, Check } from 'lucide-react'
-// TEMP DISABLED import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 interface Business {
   id: string
@@ -113,38 +112,42 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
   }
 
   return (
-    <Card className="border-0 shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Wand2 className="w-6 h-6 text-purple-600" />
+    <div className="border-0 shadow-lg bg-white rounded-2xl p-8 max-w-4xl mx-auto">
+      {/* Header */}
+      <div className="mb-8">
+        <div className="text-3xl font-bold text-slate-900 flex items-center gap-3 mb-3">
+          <Wand2 className="w-8 h-8 text-purple-600" />
           AI Content Generator
-        </CardTitle>
-        <CardDescription>
+        </div>
+        <p className="text-slate-600 text-lg">
           Generate engaging social media posts powered by Claude AI
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-6">
+        </p>
+      </div>
+
+      <div className="space-y-8">
         {/* Industry Selection */}
         <div>
-          <label className="block text-sm font-semibold text-slate-900 mb-3">
+          <label className="block text-lg font-semibold text-slate-900 mb-6">
             Select Industry
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {industries.map((industry) => (
               <button
                 key={industry.id}
                 onClick={() => setSelectedIndustry(industry.id)}
-                className={`p-4 rounded-xl border-2 transition-all text-left ${
+                className={`p-6 rounded-2xl border-2 transition-all text-left hover:shadow-md ${
                   selectedIndustry === industry.id
-                    ? 'border-purple-500 bg-purple-50'
-                    : 'border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-purple-500 bg-purple-50 ring-2 ring-purple-200'
+                    : 'border-slate-200 hover:border-slate-400 bg-white'
                 }`}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">{industry.icon}</span>
-                  <span className="font-bold text-slate-900">{industry.name}</span>
+                <div className="flex items-start gap-4 mb-3">
+                  <span className="text-3xl flex-shrink-0 mt-0.5">{industry.icon}</span>
+                  <div>
+                    <span className="font-bold text-xl text-slate-900 block">{industry.name}</span>
+                    <p className="text-sm text-slate-600 mt-1">{industry.description}</p>
+                  </div>
                 </div>
-                <p className="text-xs text-slate-600">{industry.description}</p>
               </button>
             ))}
           </div>
@@ -152,10 +155,10 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
 
         {/* Platform Selection */}
         <div>
-          <label className="block text-sm font-semibold text-slate-900 mb-3">
+          <label className="block text-lg font-semibold text-slate-900 mb-6">
             Target Platform
           </label>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {platforms.map((platform) => {
               const Icon = platform.icon
               const canAccess = canAccessPlatform(platform.id)
@@ -165,18 +168,18 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
                   key={platform.id}
                   onClick={() => canAccess && setSelectedPlatform(platform.id)}
                   disabled={!canAccess}
-                  className={`p-4 rounded-xl border-2 transition-all ${
+                  className={`p-6 rounded-2xl border-2 transition-all flex flex-col items-center ${
                     selectedPlatform === platform.id
-                      ? 'border-purple-500 bg-purple-50'
+                      ? 'border-purple-500 bg-purple-50 ring-2 ring-purple-200'
                       : canAccess
-                      ? 'border-slate-200 hover:border-slate-300 bg-white'
+                      ? 'border-slate-200 hover:border-slate-400 hover:shadow-md bg-white'
                       : 'border-slate-200 bg-slate-50 opacity-50 cursor-not-allowed'
                   }`}
                 >
-                  <Icon className={`w-6 h-6 mx-auto mb-2 ${platform.color}`} />
-                  <p className="text-xs font-medium text-slate-900">{platform.name}</p>
+                  <Icon className={`w-10 h-10 mb-3 ${platform.color}`} />
+                  <p className="text-sm font-semibold text-slate-900">{platform.name}</p>
                   {!canAccess && (
-                    <p className="text-2xs text-amber-600 mt-1">Pro only</p>
+                    <p className="text-xs text-amber-600 mt-2 font-medium">Pro only</p>
                   )}
                 </button>
               )
@@ -186,31 +189,31 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
 
         {/* Tone Selection */}
         <div>
-          <label className="block text-sm font-semibold text-slate-900 mb-3">
+          <label className="block text-lg font-semibold text-slate-900 mb-6">
             Content Tone
           </label>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {tones.map((tone) => (
               <button
                 key={tone.id}
                 onClick={() => setSelectedTone(tone.id)}
-                className={`p-3 rounded-xl border-2 transition-all ${
+                className={`p-5 rounded-2xl border-2 transition-all flex flex-col items-center hover:shadow-md ${
                   selectedTone === tone.id
-                    ? 'border-purple-500 bg-purple-50'
-                    : 'border-slate-200 hover:border-slate-300 bg-white'
+                    ? 'border-purple-500 bg-purple-50 ring-2 ring-purple-200'
+                    : 'border-slate-200 hover:border-slate-400 bg-white'
                 }`}
               >
-                <span className="block text-2xl mb-1">{tone.emoji}</span>
-                <p className="text-xs font-medium text-slate-900">{tone.name}</p>
+                <span className="text-3xl mb-2">{tone.emoji}</span>
+                <p className="text-sm font-semibold text-slate-900">{tone.name}</p>
               </button>
             ))}
           </div>
         </div>
 
         {/* Post Count */}
-        <div>
-          <label className="block text-sm font-semibold text-slate-900 mb-3">
-            Number of Posts: {postCount}
+        <div className="bg-slate-50 p-6 rounded-2xl">
+          <label className="block text-lg font-semibold text-slate-900 mb-4">
+            Number of Posts: <span className="text-2xl text-purple-600 font-bold">{postCount}</span>
           </label>
           <input
             type="range"
@@ -218,55 +221,57 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
             max="14"
             value={postCount}
             onChange={(e) => setPostCount(parseInt(e.target.value))}
-            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+            className="w-full h-3 bg-slate-300 rounded-lg appearance-none cursor-pointer accent-purple-600"
           />
-          <div className="flex justify-between text-xs text-slate-500 mt-1">
+          <div className="flex justify-between text-sm text-slate-500 mt-2">
             <span>1 post</span>
             <span>14 posts</span>
           </div>
         </div>
 
         {/* Options */}
-        <div className="space-y-3">
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className={`w-5 h-5 rounded border-2 transition-all flex items-center justify-center ${
-              includeHashtags
-                ? 'bg-purple-600 border-purple-600'
-                : 'border-slate-300 group-hover:border-slate-400'
-            }`}>
-              {includeHashtags && <Check className="w-3 h-3 text-white" />}
-            </div>
-            <input
-              type="checkbox"
-              checked={includeHashtags}
-              onChange={(e) => setIncludeHashtags(e.target.checked)}
-              className="sr-only"
-            />
-            <span className="text-sm text-slate-700">Include hashtags</span>
-          </label>
+        <div className="bg-slate-50 p-6 rounded-2xl">
+          <div className="space-y-4">
+            <label className="flex items-center gap-4 cursor-pointer group p-3 rounded-xl hover:bg-white transition-colors">
+              <div className={`w-6 h-6 rounded-lg border-2 transition-all flex items-center justify-center flex-shrink-0 ${
+                includeHashtags
+                  ? 'bg-purple-600 border-purple-600 shadow-md'
+                  : 'border-slate-300 group-hover:border-slate-400'
+              }`}>
+                {includeHashtags && <Check className="w-4 h-4 text-white" />}
+              </div>
+              <input
+                type="checkbox"
+                checked={includeHashtags}
+                onChange={(e) => setIncludeHashtags(e.target.checked)}
+                className="sr-only"
+              />
+              <span className="text-base text-slate-800 font-medium">Include hashtags</span>
+            </label>
 
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className={`w-5 h-5 rounded border-2 transition-all flex items-center justify-center ${
-              includeCTA
-                ? 'bg-purple-600 border-purple-600'
-                : 'border-slate-300 group-hover:border-slate-400'
-            }`}>
-              {includeCTA && <Check className="w-3 h-3 text-white" />}
-            </div>
-            <input
-              type="checkbox"
-              checked={includeCTA}
-              onChange={(e) => setIncludeCTA(e.target.checked)}
-              className="sr-only"
-            />
-            <span className="text-sm text-slate-700">Include call-to-action</span>
-          </label>
+            <label className="flex items-center gap-4 cursor-pointer group p-3 rounded-xl hover:bg-white transition-colors">
+              <div className={`w-6 h-6 rounded-lg border-2 transition-all flex items-center justify-center flex-shrink-0 ${
+                includeCTA
+                  ? 'bg-purple-600 border-purple-600 shadow-md'
+                  : 'border-slate-300 group-hover:border-slate-400'
+              }`}>
+                {includeCTA && <Check className="w-4 h-4 text-white" />}
+              </div>
+              <input
+                type="checkbox"
+                checked={includeCTA}
+                onChange={(e) => setIncludeCTA(e.target.checked)}
+                className="sr-only"
+              />
+              <span className="text-base text-slate-800 font-medium">Include call-to-action</span>
+            </label>
+          </div>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-            <p className="text-sm text-red-700">{error}</p>
+          <div className="p-6 bg-red-50 border-2 border-red-200 rounded-2xl">
+            <p className="text-base text-red-800 font-medium">{error}</p>
           </div>
         )}
 
@@ -274,16 +279,16 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
         <button
           onClick={handleGenerate}
           disabled={isGenerating || business.subscription_status !== 'active'}
-          className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+          className="w-full py-6 bg-gradient-to-r from-purple-600 via-purple-500 to-pink-600 text-white rounded-2xl font-bold text-xl hover:from-purple-700 hover:to-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-3xl flex items-center justify-center gap-3 transform hover:-translate-y-0.5"
         >
           {isGenerating ? (
             <>
-              <Loader2 className="w-5 h-5 animate-spin" />
+              <Loader2 className="w-6 h-6 animate-spin" />
               Generating amazing content...
             </>
           ) : (
             <>
-              <Sparkles className="w-5 h-5" />
+              <Sparkles className="w-6 h-6" />
               Generate {postCount} Posts
             </>
           )}
@@ -291,51 +296,51 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
 
         {/* Generated Posts Preview */}
         {generatedPosts.length > 0 && (
-          <div className="mt-8 space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold text-slate-900">
+              <h3 className="text-2xl font-bold text-slate-900">
                 Generated Posts ({generatedPosts.length})
               </h3>
-              <button className="text-sm text-purple-600 hover:text-purple-700 font-medium">
+              <button className="px-6 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 font-semibold transition-all shadow-lg">
                 Schedule All
               </button>
             </div>
 
-            <div className="space-y-3 max-h-96 overflow-y-auto">
+            <div className="space-y-4 max-h-96 overflow-y-auto pr-2">
               {generatedPosts.map((post, index) => (
                 <div
                   key={post.id}
-                  className="p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
+                  className="p-6 bg-gradient-to-r from-slate-50 to-white rounded-2xl hover:shadow-xl transition-all border border-slate-100 hover:border-slate-200"
                 >
-                  <div className="flex items-start justify-between mb-2">
-                    <span className="text-xs font-medium text-slate-500">
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-sm font-semibold text-slate-600 bg-slate-200 px-3 py-1 rounded-full">
                       Post #{index + 1}
                     </span>
-                    <span className={`px-2 py-1 rounded text-2xs font-medium ${
-                      post.estimatedEngagement === 'high' ? 'bg-green-100 text-green-700' :
-                      post.estimatedEngagement === 'medium' ? 'bg-yellow-100 text-yellow-700' :
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      post.estimatedEngagement === 'high' ? 'bg-emerald-100 text-emerald-800' :
+                      post.estimatedEngagement === 'medium' ? 'bg-amber-100 text-amber-800' :
                       'bg-slate-100 text-slate-600'
                     }`}>
                       {post.estimatedEngagement} engagement
                     </span>
                   </div>
-                  <p className="text-sm text-slate-700 mb-2 leading-relaxed">
+                  <p className="text-base text-slate-800 mb-4 leading-relaxed font-medium">
                     {post.content}
                   </p>
                   {post.hashtags && post.hashtags.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mb-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {post.hashtags.map((tag: string, i: number) => (
-                        <span key={i} className="text-xs text-blue-600">
+                        <span key={i} className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-medium">
                           {tag}
                         </span>
                       ))}
                     </div>
                   )}
-                  <div className="flex items-center gap-2 pt-2 border-t border-slate-200">
-                    <button className="text-xs text-purple-600 hover:text-purple-700 font-medium">
+                  <div className="flex items-center gap-4 pt-4 border-t border-slate-200">
+                    <button className="px-4 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 font-semibold transition-all shadow-md hover:shadow-lg">
                       Schedule
                     </button>
-                    <button className="text-xs text-slate-500 hover:text-slate-600 font-medium">
+                    <button className="px-4 py-2 text-slate-700 hover:text-slate-900 font-semibold hover:bg-slate-100 rounded-xl transition-all">
                       Edit
                     </button>
                   </div>
@@ -344,7 +349,7 @@ export default function AIContentGenerator({ business }: AIContentGeneratorProps
             </div>
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
