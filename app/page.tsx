@@ -25,7 +25,6 @@ export default async function Page() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Total Mentions */}
         <div className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1">
           <div className="flex flex-row items-center justify-between space-y-0 pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Total Mentions</h3>
@@ -37,7 +36,6 @@ export default async function Page() {
           </div>
         </div>
 
-        {/* Positive */}
         <div className="group bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-6 hover:shadow-xl hover:shadow-green-200/50 transition-all duration-300 hover:-translate-y-1">
           <div className="flex flex-row items-center justify-between space-y-0 pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Positive</h3>
@@ -46,7 +44,6 @@ export default async function Page() {
           <div className="text-3xl lg:text-4xl font-bold text-green-600">78%</div>
         </div>
 
-        {/* Negative */}
         <div className="group bg-gradient-to-br from-red-50 to-rose-50 border border-red-100 rounded-2xl p-6 hover:shadow-xl hover:shadow-red-200/50 transition-all duration-300 hover:-translate-y-1">
           <div className="flex flex-row items-center justify-between space-y-0 pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Negative</h3>
@@ -55,7 +52,6 @@ export default async function Page() {
           <div className="text-3xl lg:text-4xl font-bold text-red-500">12%</div>
         </div>
 
-        {/* Neutral */}
         <div className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1">
           <div className="flex flex-row items-center justify-between space-y-0 pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Neutral</h3>
@@ -97,5 +93,19 @@ export default async function Page() {
               </div>
             </button>
 
-            <button className="group relative p-6 bg-white border-2 bo
-
+            <button className="group relative p-6 bg-white border-2 border-slate-200 rounded-2xl hover:border-blue-300 hover:bg-blue-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-2xl"></div>
+              <div className="relative z-10 flex flex-col items-center text-center space-y-3">
+                <TrendingUp className="w-10 h-10 text-blue-600 group-hover:scale-110 transition-transform" />
+                <div>
+                  <h3 className="font-semibold text-slate-900 text-lg">Export Report</h3>
+                  <p className="text-sm text-slate-500">Download PDF/CSV</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
