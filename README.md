@@ -13,7 +13,7 @@ A premium Next.js social analytics platform powered by Claude AI for real-time s
 - **OAuth Integration**: Secure social media account connections
 - **Batch Processing**: Efficient analysis of large mention volumes
 
-## 📋 Prerequisites
+## 📋 Prerequisites 
 
 - Node.js 18+ and npm/yarn
 - Supabase account (free tier works)
