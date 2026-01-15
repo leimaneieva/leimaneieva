@@ -20,7 +20,7 @@ export default async function Page() {
           <TrendingUp className="h-6 w-6 text-green-600" />
           <span className="text-2xl font-bold text-green-800">Live</span>
         </div>
-      </div>
+      </div> 
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1">
