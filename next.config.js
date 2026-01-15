@@ -40,10 +40,6 @@ const nextConfig = {
     NEXT_PUBLIC_APP_NAME: 'SocialPulse',
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   },
-  // Optimize for production
-  swcMinify: true,
-  compress: true,
-  poweredByHeader: false,
   
   // Configure headers for security
   async headers() {
