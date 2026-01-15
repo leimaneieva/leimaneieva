@@ -1,4 +1,4 @@
-# Social Analytics SaaS - Sentiment Intelligence Platform
+# Social Analytics SaaS - Sentiment Intelligence Platform 
 
 A premium Next.js social analytics platform powered by Claude AI for real-time sentiment analysis across social media platforms. Built with Supabase for multi-tenant architecture with Row Level Security (RLS).
 
