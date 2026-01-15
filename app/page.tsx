@@ -12,7 +12,6 @@ export default async function Page() {
 
   return (
     <div className="container mx-auto py-10 space-y-8 max-w-7xl p-4 sm:p-8">
-      {/* Header */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
           Social Sentiment Dashboard
@@ -23,10 +22,9 @@ export default async function Page() {
         </div>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1">
-          <div className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <div className="flex items-center justify-between pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Total Mentions</h3>
             <Users className="h-5 w-5 text-slate-400 group-hover:text-slate-500 transition-colors" />
           </div>
@@ -37,7 +35,7 @@ export default async function Page() {
         </div>
 
         <div className="group bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-6 hover:shadow-xl hover:shadow-green-200/50 transition-all duration-300 hover:-translate-y-1">
-          <div className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <div className="flex items-center justify-between pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Positive</h3>
             <TrendingUp className="h-5 w-5 text-green-600" />
           </div>
@@ -45,7 +43,7 @@ export default async function Page() {
         </div>
 
         <div className="group bg-gradient-to-br from-red-50 to-rose-50 border border-red-100 rounded-2xl p-6 hover:shadow-xl hover:shadow-red-200/50 transition-all duration-300 hover:-translate-y-1">
-          <div className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <div className="flex items-center justify-between pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Negative</h3>
             <BarChart3 className="h-5 w-5 text-red-500" />
           </div>
@@ -53,7 +51,7 @@ export default async function Page() {
         </div>
 
         <div className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1">
-          <div className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <div className="flex items-center justify-between pb-4">
             <h3 className="text-lg font-semibold text-slate-900">Neutral</h3>
             <MessageSquare className="h-5 w-5 text-slate-400 group-hover:text-slate-500 transition-colors" />
           </div>
@@ -61,7 +59,6 @@ export default async function Page() {
         </div>
       </div>
 
-      {/* Quick Actions */}
       <div className="grid grid-cols-1 gap-6">
         <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
           <div className="border-b border-slate-200 pb-6 mb-6">
