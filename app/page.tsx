@@ -14,7 +14,7 @@ export default async function Page() {
     <div className="container mx-auto py-10 space-y-8 max-w-7xl p-4 sm:p-8">
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-          Social Sentiment Dashboard
+          Social Sentiment DashBoard
         </h1>
         <div className="flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full">
           <TrendingUp className="h-6 w-6 text-green-600" />
